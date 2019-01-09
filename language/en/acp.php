@@ -19,7 +19,7 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-	'MASSNOTIFICATION_DESC'	=> 'Demo Module',
+	'MASSNOTIFICATION_DESC'	=> 'Here you can send a board notification to either all of your users or specific users or groups.',
 
 	'COMPOSE'				=> 'Compose mass notification',
 	'ALL_USERS'				=> 'All users',
