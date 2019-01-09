@@ -10,7 +10,7 @@
 
 namespace senky\massnotification\migrations;
 
-class m1_acp_module extends \phpbb\db\migration\migration
+class m2_id_incrementer extends \phpbb\db\migration\migration
 {
 	public function effectively_installed()
 	{
