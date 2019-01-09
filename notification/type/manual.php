@@ -20,6 +20,13 @@ class manual extends \phpbb\notification\type\base
 		return 'senky.massnotification.notification.type.manual';
 	}
 
+	/** @var \phpbb\event\dispatcher_interface */
+	protected $dispatcher;
+	public function set_dispatcher(\phpbb\event\dispatcher_interface $dispatcher)
+	{
+		$this->dispatcher = $dispatcher;
+	}
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -47,13 +54,31 @@ class manual extends \phpbb\notification\type\base
 	/**
 	 * {@inheritDoc}
 	 */
-	public function find_users_for_notification($data, $options = array())
+	public function find_users_for_notification($data, $options = [])
 	{
 		$users = [];
 		foreach ($data['user_ids'] as $user)
 		{
 			$users[$user] = ['notification.method.board'];
 		}
+
+		/**
+		* You can use this event to modify a list of users who will receive manual notification
+		* and methods in which they will receive it.
+		*
+		* @event senky.massnotification.notification_users
+		* @var	array	data	Notification data
+		* @var	array	options	Notification options
+		* @var	array	users	user_id => [notif_methods]
+		* @since 1.0.0
+		*/
+		$vars = [
+			'data',
+			'options',
+			'users',
+		];
+		extract($this->dispatcher->trigger_event('senky.massnotification.notification_users', compact($vars)));
+
 		return $users;
 	}
 

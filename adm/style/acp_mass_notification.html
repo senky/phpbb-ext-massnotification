@@ -46,6 +46,8 @@
 			<dd><input size="70" name="url" type="url" id="url" value="{{ URL }}" /></dd>
 		</dl>
 
+		{% EVENT senky_massnotification_adm_after %}
+
 		<p class="submit-buttons">
 			<input class="button1" type="submit" id="submit" name="submit" value="{{ lang('SEND_NOTIFICATION') }}" />&nbsp;
 			<input class="button2" type="reset" id="reset" name="reset" value="{{ lang('RESET') }}" />

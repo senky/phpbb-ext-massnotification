@@ -39,7 +39,10 @@ class main_module
 	/** @var \phpbb\notification\manager */
 	protected $notifications_manager;
 
-	/** @var string */
+	/** @var \phpbb\event\dispatcher_interface */
+	protected $dispatcher;
+
+	/** @var \phpbb\group\helper */
 	protected $group_helper;
 
 	/** @var string */
@@ -69,6 +72,7 @@ class main_module
 		$this->db = $phpbb_container->get('dbal.conn');
 		$this->config = $phpbb_container->get('config');
 		$this->notifications_manager = $phpbb_container->get('notification_manager');
+		$this->dispatcher = $phpbb_container->get('dispatcher');
 		$this->group_helper = $phpbb_container->get('group_helper');
 		$this->groups_table = $phpbb_container->getParameter('tables.groups');
 		$this->users_table = $phpbb_container->getParameter('tables.users');
@@ -152,6 +156,31 @@ class main_module
 				$this->db->sql_freeresult($result);
 
 				$user_ids = array_column($user_ids, 'user_id');
+
+				$u_action = $this->u_action;
+				/**
+				* You can use this event to modify a list of users who will receive manual notification
+				*
+				* @event senky.massnotification.acp_before_send
+				* @var	array	usernames	Array of usernames received from the admin
+				* @var	int		group_id	Group ID selected by the admin
+				* @var	string	title		Title of the notification
+				* @var	string	message		Message of the notification
+				* @var	string	url			URL of the notification
+				* @var	array	user_ids	Array of user IDs to send notification to
+				* @var	string	u_action	Current page URL
+				* @since 1.0.0
+				*/
+				$vars = [
+					'usernames',
+					'group_id',
+					'title',
+					'message',
+					'url',
+					'user_ids',
+					'u_action',
+				];
+				extract($this->dispatcher->trigger_event('senky.massnotification.acp_before_send', compact($vars)));
 
 				$this->config->increment('senky_massnotification_id', 1);
 				$this->notifications_manager->add_notifications('senky.massnotification.notification.type.manual', [
