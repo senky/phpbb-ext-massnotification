@@ -68,6 +68,14 @@ class manual extends \phpbb\notification\type\base
 	/**
 	 * {@inheritDoc}
 	 */
+	public function get_style_class()
+	{
+		return 'senky-massnotification';
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
 	public function get_title()
 	{
 		return '<strong>' . $this->get_data('title') . '</strong>';
