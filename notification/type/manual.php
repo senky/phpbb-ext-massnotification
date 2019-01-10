@@ -143,7 +143,6 @@ class manual extends \phpbb\notification\type\base
 	*/
 	public function create_insert_array($data, $pre_create_data = [])
 	{
-		$this->set_data('notification_id', $data['notification_id']);
 		$this->set_data('title', $data['title']);
 		$this->set_data('message', $data['message']);
 		$this->set_data('url', $data['url']);
