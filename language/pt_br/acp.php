@@ -23,8 +23,8 @@ $lang = array_merge($lang, array(
 
 	'COMPOSE'				=> 'Compor notificação em massa',
 	'ALL_USERS'				=> 'Todos os usuários',
-	'SEND_TO_GROUP'			=> 'Enviar para grupo:',
-	'SEND_TO_USERS'			=> 'Enviar para usuários:',
+	'SEND_TO_GROUP'			=> 'Enviar para grupo',
+	'SEND_TO_USERS'			=> 'Enviar para usuários',
 	'SEND_TO_USERS_EXPLAIN'	=> 'Escrevendo nome de usuário aqui substituirá qualquer grupo selecionado acima. Insira cada nome de usuário em uma nova linha.',
 	'TITLE'					=> 'Título da notificação',
 	'MESSAGE_EXPLAIN'		=> 'Menssagem curta, de preferência abaixo de 150 caracteres. Você pode usar HTML.',
