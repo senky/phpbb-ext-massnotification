@@ -20,6 +20,15 @@ class manual extends \phpbb\notification\type\base
 		return 'senky.massnotification.notification.type.manual';
 	}
 
+	/**
+	 * @var \phpbb\user_loader
+	 */
+	protected $user_loader;
+	public function set_user_loader(\phpbb\user_loader $user_loader)
+	{
+		$this->user_loader = $user_loader;
+	}
+
 	/** @var \phpbb\event\dispatcher_interface */
 	protected $dispatcher;
 	public function set_dispatcher(\phpbb\event\dispatcher_interface $dispatcher)
@@ -99,6 +108,14 @@ class manual extends \phpbb\notification\type\base
 	}
 
 	/**
+	* {@inheritdoc}
+	*/
+	public function get_avatar()
+	{
+	return $this->user_loader->get_avatar($this->get_data('user_id'), true, false);
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	public function get_title()
@@ -151,6 +168,7 @@ class manual extends \phpbb\notification\type\base
 	*/
 	public function create_insert_array($data, $pre_create_data = [])
 	{
+		$this->set_data('user_id', $data['user_id']);
 		$this->set_data('title', $data['title']);
 		$this->set_data('message', $data['message']);
 		$this->set_data('url', $data['url']);
