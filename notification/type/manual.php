@@ -123,6 +123,14 @@ class manual extends \phpbb\notification\type\base
 	}
 
 	/**
+	* {inheritDoc}
+	*/
+	public function get_redirect_url()
+	{
+		return false;
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	public function get_email_template()
