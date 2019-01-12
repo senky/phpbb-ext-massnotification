@@ -39,6 +39,9 @@ class main_module
 	/** @var \phpbb\notification\manager */
 	protected $notifications_manager;
 
+	/** @var string */
+	protected $user;
+
 	/** @var \phpbb\event\dispatcher_interface */
 	protected $dispatcher;
 
@@ -72,6 +75,7 @@ class main_module
 		$this->db = $phpbb_container->get('dbal.conn');
 		$this->config = $phpbb_container->get('config');
 		$this->notifications_manager = $phpbb_container->get('notification_manager');
+		$this->user = $phpbb_container->get('user');
 		$this->dispatcher = $phpbb_container->get('dispatcher');
 		$this->group_helper = $phpbb_container->get('group_helper');
 		$this->groups_table = $phpbb_container->getParameter('tables.groups');
@@ -185,6 +189,7 @@ class main_module
 				$this->config->increment('senky_massnotification_id', 1);
 				$this->notifications_manager->add_notifications('senky.massnotification.notification.type.manual', [
 					'notification_id'	=> $this->config['senky_massnotification_id'],
+					'user_id'			=> $this->user->data['user_id'],
 					'user_ids'			=> $user_ids,
 					'title'				=> $title,
 					'message'			=> $message,
