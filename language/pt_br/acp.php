@@ -19,15 +19,15 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-	'MASSNOTIFICATION_DESC'	=> 'Here you can send a board notification to either all of your users or specific users or groups.',
+	'MASSNOTIFICATION_DESC'	=> 'Aqui você pode enviar uma notificação do fórum para todos os seus usuários ou usuários ou grupos específicos.',
 
 	'COMPOSE'				=> 'Compor notificação em massa',
 	'ALL_USERS'				=> 'Todos os usuários',
-	'SEND_TO_GROUP'			=> 'Enviar para grupo:',
-	'SEND_TO_USERS'			=> 'Enviar para usuários:',
-	'SEND_TO_USERS_EXPLAIN'	=> 'Inserir nomes aqui substituirá qualquer grupo selecionado acima. Digite cada nome de usuário em uma nova linha.',
+	'SEND_TO_GROUP'			=> 'Enviar para grupo',
+	'SEND_TO_USERS'			=> 'Enviar para usuários',
+	'SEND_TO_USERS_EXPLAIN'	=> 'Escrevendo nome de usuário aqui substituirá qualquer grupo selecionado acima. Insira cada nome de usuário em uma nova linha.',
 	'TITLE'					=> 'Título da notificação',
-	'MESSAGE_EXPLAIN'		=> 'Keep it short, preferably below 150 characters. Você pode usar HTML.',
+	'MESSAGE_EXPLAIN'		=> 'Menssagem curta, de preferência abaixo de 150 caracteres. Você pode usar HTML.',
 	'URL'					=> 'URL de redirecionamento',
 	'URL_EXPLAIN'			=> 'Insira o URL para o qual o usuário será redirecionado depois de clicar na notificação.',
 	'SEND_NOTIFICATION'		=> 'Enviar notificação',
