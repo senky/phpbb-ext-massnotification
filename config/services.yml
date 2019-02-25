@@ -1,4 +1,11 @@
 services:
+    senky.massnotification.listener:
+        class: senky\massnotification\event\listener
+        arguments:
+            - '@request'
+        tags:
+            - { name: event.listener }
+
     senky.massnotification.notification.type.manual:
         class: senky\massnotification\notification\type\manual
         shared: false # service MUST not be shared for this to work!
