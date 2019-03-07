@@ -189,6 +189,7 @@ class main_module
 				* @var	array	user_ids	Array of user IDs to send notification to
 				* @var	string	u_action	Current page URL
 				* @since 1.0.0
+				* @changed 1.0.3	Added author and author_id
 				*/
 				$vars = [
 					'usernames',
