@@ -30,10 +30,12 @@ $lang = array_merge($lang, array(
 	'MESSAGE_EXPLAIN'		=> 'Houd het kort, bij voorkeur onder 150 karakters. Je kan HTML gebruiken.',
 	'URL'					=> 'Omleidings-URL',
 	'URL_EXPLAIN'			=> 'Voer de URL in waarnaar de gebruiker wordt omgeleid nadat hij op de melding heeft geklikt.',
+	'AUTHOR_EXPLAIN'		=> 'Enter author of the notification. Leave blank for generic notification without author.',
 	'SEND_NOTIFICATION'		=> 'Verzend notificatie',
 
 	'NO_NOTIFICATION_TITLE'		=> 'U moet de titel van de notificatie opgeven.',
 	'NO_NOTIFICATION_MESSAGE'	=> 'U moet een notificatie bericht opgeven.',
+	'NO_NOTIFICATION_AUTHOR'	=> 'Author does not exist.',
 
 	'NOTIFICATION_SEND'	=> 'Uw notificatie is verzonden.',
 ));
