@@ -134,7 +134,7 @@ class main_module
 				if (!empty($usernames))
 				{
 					$sql_ary = [
-						'SELECT'	=> 'u.user_id',
+						'SELECT'	=> 'u.user_id, u.username',
 						'FROM'		=> [
 							$this->users_table	=> 'u',
 						],
@@ -169,10 +169,10 @@ class main_module
 
 				$sql = $this->db->sql_build_query('SELECT', $sql_ary);
 				$result = $this->db->sql_query($sql);
-				$user_ids = $this->db->sql_fetchrowset($result);
+				$users = $this->db->sql_fetchrowset($result);
 				$this->db->sql_freeresult($result);
 
-				$user_ids = array_column($user_ids, 'user_id');
+				$user_ids = array_column($users, 'user_id');
 
 				$u_action = $this->u_action;
 				/**
@@ -214,7 +214,22 @@ class main_module
 					'author_id'			=> $author_id,
 				]);
 
-				trigger_error($this->language->lang('NOTIFICATION_SEND') . adm_back_link($this->u_action));
+				$message = $this->language->lang('NOTIFICATION_SEND', count($user_ids));
+				if (!empty($usernames) && count($usernames) !== count($user_ids))
+				{
+					$found_usernames = array_column($users, 'username');
+					foreach ($usernames as $username)
+					{
+						if (!in_array($username, $found_usernames))
+						{
+							$not_found_users[] = $username;
+						}
+					}
+
+					$message .= $this->language->lang('SOME_USERNAMES_NOT_FOUND', implode(', ', $not_found_users));
+				}
+
+				trigger_error($message . adm_back_link($this->u_action));
 			}
 		}
 

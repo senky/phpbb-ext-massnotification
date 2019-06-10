@@ -37,5 +37,9 @@ $lang = array_merge($lang, array(
 	'NO_NOTIFICATION_MESSAGE'	=> 'You have to specify notification message.',
 	'NO_NOTIFICATION_AUTHOR'	=> 'Author does not exist.',
 
-	'NOTIFICATION_SEND'	=> 'Your notification has been sent.',
+	'NOTIFICATION_SEND'			=> [
+		1	=> 'Your notification has been sent to 1 user.',
+		2	=> 'Your notification has been sent to %d users.',
+	],
+	'SOME_USERNAMES_NOT_FOUND'	=> ' Some users were not found:<br>%s',
 ));
