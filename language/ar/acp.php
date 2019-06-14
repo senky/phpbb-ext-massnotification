@@ -39,8 +39,8 @@ $lang = array_merge($lang, array(
 	'NO_NOTIFICATION_AUTHOR'	=> 'إسم الكاتب غير موجود.',
 
 	'NOTIFICATION_SEND'			=> [
-		1	=> 'Your notification has been sent to 1 user.',
-		2	=> 'Your notification has been sent to %d users.',
+		1	=> 'تم إرسال الإشعار إلى 1 عضو.',
+		2	=> 'تم إرسال الإشعار إلى %d أعضاء.',
 	],
-	'SOME_USERNAMES_NOT_FOUND'	=> ' Some users were not found:<br>%s',
+	'SOME_USERNAMES_NOT_FOUND'	=> ' لم يتم العثور على بعض الأعضاء:<br>%s',
 ));
