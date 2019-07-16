@@ -41,5 +41,5 @@ $lang = array_merge($lang, array(
 		1	=> 'Your notification has been sent to 1 user.',
 		2	=> 'Your notification has been sent to %d users.',
 	],
-	'SOME_USERNAMES_NOT_FOUND'	=> ' Some users were not found:<br>%s',
+	'SOME_USERNAMES_NOT_FOUND'	=> 'Some users were not found:<br>%s',
 ));
