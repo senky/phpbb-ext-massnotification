@@ -19,5 +19,5 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-	'ACP_SENKY_MASSNOTIFICATION_TITLE'	=> 'התראה המונית',
+	'ACP_SENKY_MASSNOTIFICATION_TITLE'	=> 'התרעה המונית',
 ));
